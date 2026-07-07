@@ -2,6 +2,9 @@
 @source "../src";
 @import "tw-animate-css";
 
+/* Fonts loaded via <link> in __root.tsx head — do not @import remote URLs here (Tailwind v4 Lightning CSS resolves from filesystem). */
+
+
 @custom-variant dark (&:is(.dark *));
 
 /*
