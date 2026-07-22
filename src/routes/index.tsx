@@ -5,6 +5,11 @@ import natalyAsset from "@/assets/nataly_mafla.jpg.asset.json";
 import hectorAsset from "@/assets/hector.jpg.asset.json";
 import malvinasAsset from "@/assets/las_malvinas.jpg.asset.json";
 import restrepoAsset from "@/assets/hermanos_restrepo.jpg.asset.json";
+import romoAsset from "@/assets/david_romo.jpg.asset.json";
+import campoverdeAsset from "@/assets/juliana_campoverde.jpg.asset.json";
+import bernalAsset from "@/assets/maria_belen_bernal.jpg.asset.json";
+import garzonAsset from "@/assets/carolina_garzon.jpg.asset.json";
+
 import ecuadorHeatmap from "@/assets/ecuador-heatmap.jpg";
 import heroVigil from "@/assets/hero-vigil.jpg";
 import desaparecidosSillas from "@/assets/Fotografias de desaparecidos en sillas.jpg";
@@ -115,7 +120,7 @@ const casos = [
     lugar: "Quito · sector Escuela Politécnica Nacional",
     fecha: "Jueves 4 de junio de 2026",
     estado: "En búsqueda",
-    imagen: natalyAsset.url,
+    imagen: new URL(natalyAsset.url, import.meta.url).href,
     resumen:
       "Estudiante universitaria reportada como desaparecida en las inmediaciones de la Escuela Politécnica Nacional. Su caso reactivó el debate sobre seguridad en el entorno universitario de Quito y sobre los tiempos institucionales de activación de la búsqueda.",
     detalle:
@@ -128,7 +133,7 @@ const casos = [
     lugar: "Quito",
     fecha: "Miércoles 18 de febrero de 2026",
     estado: "En búsqueda",
-    imagen: hectorAsset.url,
+    imagen: new URL(hectorAsset.url, import.meta.url).href,
     resumen:
       "Héctor forma parte de los reportes de 2026 que aún constan como abiertos. Su ficha de búsqueda continúa circulando en redes sociales y en la Fiscalía General del Estado.",
     detalle:
@@ -141,7 +146,7 @@ const casos = [
     lugar: "Sur de Guayaquil · Taura",
     fecha: "Domingo 8 de diciembre de 2024",
     estado: "Sentencia por desaparición forzada",
-    imagen: malvinasAsset.url,
+    imagen: new URL(malvinasAsset.url, import.meta.url).href,
     resumen:
       "Cuatro niños afrodescendientes fueron detenidos por personal militar en el sur de Guayaquil. Sus cuerpos fueron hallados posteriormente en Taura.",
     detalle:
@@ -154,7 +159,7 @@ const casos = [
     lugar: "Quito",
     fecha: "Jueves 8 de enero de 1988",
     estado: "Desaparición forzada",
-    imagen: restrepoAsset.url,
+    imagen: new URL(restrepoAsset.url, import.meta.url).href,
     resumen:
       "Los hermanos Restrepo, de 14 y 17 años, fueron detenidos por agentes del Servicio de Investigación Criminal en Quito. Nunca aparecieron. Su caso originó la Comisión Verdad y una jurisprudencia clave sobre desaparición forzada en Ecuador.",
     detalle:
@@ -167,7 +172,7 @@ const casos = [
     lugar: "Quito · Mitad del Mundo",
     fecha: "Jueves 16 de mayo de 2013",
     estado: "Investigación abierta",
-    imagen: null,
+    imagen: new URL(romoAsset.url, import.meta.url).href,
     resumen:
       "David desapareció cuando se movilizaba desde la universidad hacia su domicilio en la Mitad del Mundo, al norte de Quito. En mayo de 2025, la Fiscalía aclaró oficialmente que la investigación continúa abierta de forma indefinida.",
     detalle:
@@ -180,9 +185,8 @@ const casos = [
     lugar: "Quito · sector Paluco",
     fecha: "Abril de 2012",
     estado: "En búsqueda",
-    imagen: null,
-    resumen:
-      "Ciudadana colombiana de 22 años, artesana, vista por última vez en el suroriente de Quito. La Fiscalía informó en 2015 más de 650 diligencias, incluidas reconstrucciones y asistencias penales internacionales.",
+    imagen: new URL(garzonAsset.url, import.meta.url).href,
+    resumen: "Ciudadana colombiana de 22 años, artesana, vista por última vez en el suroriente de Quito. La Fiscalía informó en 2015 más de 650 diligencias, incluidas reconstrucciones y asistencias penales internacionales.",
     detalle:
       "Su caso muestra que las historias migrantes requieren coordinación internacional sostenida. Entre los registros extranjeros, la nacionalidad venezolana desplazó a la colombiana como la más frecuente desde 2019.",
   },
@@ -193,9 +197,8 @@ const casos = [
     lugar: "Sur de Quito",
     fecha: "Sábado 7 de julio de 2012",
     estado: "Sentencia por secuestro extorsivo con resultado de muerte",
-    imagen: null,
-    resumen:
-      "Juliana tenía 18 años cuando desapareció. La Fiscalía obtuvo una sentencia de 25 años, ratificada posteriormente, y se ordenó continuar las acciones para localizar sus restos.",
+    imagen: new URL(campoverdeAsset.url, import.meta.url).href,
+    resumen: "Juliana tenía 18 años cuando desapareció. La Fiscalía obtuvo una sentencia de 25 años, ratificada posteriormente, y se ordenó continuar las acciones para localizar sus restos.",
     detalle:
       "Encontrar la verdad judicial no sustituye el derecho de una familia a recuperar a la persona o sus restos. La búsqueda no termina con una sentencia ni con una declaración de muerte presunta.",
   },
@@ -264,7 +267,7 @@ const cases = [
     place: "Quito",
     description: "David Romo desapareció en Quito en mayo de 2013. Su caso sigue abierto para búsqueda y localización, según informó la Fiscalía en 2025, y su madre, Alexandra Córdova, convirtió la ausencia en una lucha por verdad y memoria.",
     status: "Caso abierto",
-    imageUrl: null,
+    imageUrl: new URL(romoAsset.url, import.meta.url).href,
     sourceHref: "#",
   },
   {
@@ -273,7 +276,7 @@ const cases = [
     place: "Quito",
     description: "Juliana Campoverde desapareció en 2012, cuando tenía 18 años. La Fiscalía obtuvo una sentencia de 25 años por secuestro extorsivo con resultado de muerte, pero su familia aún espera recuperar sus restos.",
     status: "Caso judicial",
-    imageUrl: null,
+    imageUrl: new URL(campoverdeAsset.url, import.meta.url).href,
     sourceHref: "#",
   },
   {
@@ -282,7 +285,7 @@ const cases = [
     place: "Quito",
     description: "María Belén Bernal desapareció en septiembre de 2022 después de ingresar a la Escuela Superior de Policía. Su cuerpo fue localizado días después en el cerro Casitagua y el caso estremeció al país por la violencia en un espacio que debía representar protección.",
     status: "Caso emblemático",
-    imageUrl: null,
+    imageUrl: new URL(bernalAsset.url, import.meta.url).href,
     sourceHref: "#",
   },
   {
@@ -291,7 +294,7 @@ const cases = [
     place: "Guayaquil",
     description: "Josué, Ismael, Steven y Nehemías, tres adolescentes y un niño, fueron detenidos por militares en Guayaquil en diciembre de 2024. Sus cuerpos fueron hallados después cerca de Taura y el proceso judicial terminó con sentencias por desaparición forzada.",
     status: "Caso emblemático",
-    imageUrl: malvinasAsset.url,
+    imageUrl: new URL(malvinasAsset.url, import.meta.url).href,
     sourceHref: "#",
   },
   {
@@ -300,7 +303,7 @@ const cases = [
     place: "Quito",
     description: "Caso pendiente de insertar con contexto, fuente y enlace oficial.",
     status: "Caso migrante",
-    imageUrl: null,
+    imageUrl: new URL(garzonAsset.url, import.meta.url).href,
     sourceHref: "#",
   },
   {
