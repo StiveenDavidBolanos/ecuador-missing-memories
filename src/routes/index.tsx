@@ -1,14 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useRevealOnScroll, useScrollProgress, useActiveSection } from "@/hooks/useReveal";
-import natalyAsset from "@/assets/nataly_mafla.jpg.asset.json";
-import hectorAsset from "@/assets/hector.jpg.asset.json";
-import malvinasAsset from "@/assets/las_malvinas.jpg.asset.json";
-import restrepoAsset from "@/assets/hermanos_restrepo.jpg.asset.json";
-import romoAsset from "@/assets/david_romo.jpg.asset.json";
-import campoverdeAsset from "@/assets/juliana_campoverde.jpg.asset.json";
-import bernalAsset from "@/assets/maria_belen_bernal.jpg.asset.json";
-import garzonAsset from "@/assets/carolina_garzon.jpg.asset.json";
 
 import ecuadorHeatmap from "@/assets/ecuador-heatmap.jpg";
 import heroVigil from "@/assets/hero-vigil.jpg";
@@ -120,7 +112,7 @@ const casos = [
     lugar: "Quito · sector Escuela Politécnica Nacional",
     fecha: "Jueves 4 de junio de 2026",
     estado: "En búsqueda",
-    imagen: new URL(natalyAsset.url, import.meta.url).href,
+    imagen: "https://www.image2url.com/r2/default/files/1784759031583-8b184f84-27ae-4b8b-81c5-92153f3f46b6.jpg",
     resumen:
       "Estudiante universitaria reportada como desaparecida en las inmediaciones de la Escuela Politécnica Nacional. Su caso reactivó el debate sobre seguridad en el entorno universitario de Quito y sobre los tiempos institucionales de activación de la búsqueda.",
     detalle:
@@ -133,7 +125,7 @@ const casos = [
     lugar: "Quito",
     fecha: "Miércoles 18 de febrero de 2026",
     estado: "En búsqueda",
-    imagen: new URL(hectorAsset.url, import.meta.url).href,
+    imagen: "https://www.image2url.com/r2/default/files/1784759133738-9f75dd38-6aee-4796-838c-39fd01cafcbb.jpg",
     resumen:
       "Héctor forma parte de los reportes de 2026 que aún constan como abiertos. Su ficha de búsqueda continúa circulando en redes sociales y en la Fiscalía General del Estado.",
     detalle:
@@ -146,7 +138,7 @@ const casos = [
     lugar: "Sur de Guayaquil · Taura",
     fecha: "Domingo 8 de diciembre de 2024",
     estado: "Sentencia por desaparición forzada",
-    imagen: new URL(malvinasAsset.url, import.meta.url).href,
+    imagen: "https://www.image2url.com/r2/default/files/1784759105368-8b6f1aeb-3d30-4dd1-85a2-c822a3890a24.jpg",
     resumen:
       "Cuatro niños afrodescendientes fueron detenidos por personal militar en el sur de Guayaquil. Sus cuerpos fueron hallados posteriormente en Taura.",
     detalle:
@@ -159,7 +151,7 @@ const casos = [
     lugar: "Quito",
     fecha: "Jueves 8 de enero de 1988",
     estado: "Desaparición forzada",
-    imagen: new URL(restrepoAsset.url, import.meta.url).href,
+    imagen: "https://www.image2url.com/r2/default/files/1784759175174-d72699c5-6485-4b94-b9c8-28ee0d525e7a.jpg",
     resumen:
       "Los hermanos Restrepo, de 14 y 17 años, fueron detenidos por agentes del Servicio de Investigación Criminal en Quito. Nunca aparecieron. Su caso originó la Comisión Verdad y una jurisprudencia clave sobre desaparición forzada en Ecuador.",
     detalle:
@@ -172,8 +164,7 @@ const casos = [
     lugar: "Quito · Mitad del Mundo",
     fecha: "Jueves 16 de mayo de 2013",
     estado: "Investigación abierta",
-    imagen: new URL(romoAsset.url, import.meta.url).href,
-    resumen:
+    imagen: "https://www.image2url.com/r2/default/files/1784759078841-64cd65f1-dec5-4672-bb2d-79a1ca17292c.jpg", resumen:
       "David desapareció cuando se movilizaba desde la universidad hacia su domicilio en la Mitad del Mundo, al norte de Quito. En mayo de 2025, la Fiscalía aclaró oficialmente que la investigación continúa abierta de forma indefinida.",
     detalle:
       "Su caso encarna una regla legal que suele perderse entre trámites: una investigación sobre una persona desaparecida no puede cerrarse mientras no exista certeza sobre su paradero.",
@@ -185,8 +176,7 @@ const casos = [
     lugar: "Quito · sector Paluco",
     fecha: "Abril de 2012",
     estado: "En búsqueda",
-    imagen: new URL(garzonAsset.url, import.meta.url).href,
-    resumen: "Ciudadana colombiana de 22 años, artesana, vista por última vez en el suroriente de Quito. La Fiscalía informó en 2015 más de 650 diligencias, incluidas reconstrucciones y asistencias penales internacionales.",
+    imagen: "https://www.image2url.com/r2/default/files/1784758876316-2d1783c4-0ea5-4c0c-a6c0-8869793755d1.jpg", resumen: "Ciudadana colombiana de 22 años, artesana, vista por última vez en el suroriente de Quito. La Fiscalía informó en 2015 más de 650 diligencias, incluidas reconstrucciones y asistencias penales internacionales.",
     detalle:
       "Su caso muestra que las historias migrantes requieren coordinación internacional sostenida. Entre los registros extranjeros, la nacionalidad venezolana desplazó a la colombiana como la más frecuente desde 2019.",
   },
@@ -197,8 +187,7 @@ const casos = [
     lugar: "Sur de Quito",
     fecha: "Sábado 7 de julio de 2012",
     estado: "Sentencia por secuestro extorsivo con resultado de muerte",
-    imagen: new URL(campoverdeAsset.url, import.meta.url).href,
-    resumen: "Juliana tenía 18 años cuando desapareció. La Fiscalía obtuvo una sentencia de 25 años, ratificada posteriormente, y se ordenó continuar las acciones para localizar sus restos.",
+    imagen: "https://www.image2url.com/r2/default/files/1784759228269-2c536a26-650d-4cc9-b6ae-9ae6208a583e.jpg", resumen: "Juliana tenía 18 años cuando desapareció. La Fiscalía obtuvo una sentencia de 25 años, ratificada posteriormente, y se ordenó continuar las acciones para localizar sus restos.",
     detalle:
       "Encontrar la verdad judicial no sustituye el derecho de una familia a recuperar a la persona o sus restos. La búsqueda no termina con una sentencia ni con una declaración de muerte presunta.",
   },
@@ -250,16 +239,6 @@ const secciones = [
   { id: "cierre", label: "Cierre" },
 ];
 
-const documentoPuntos = [
-  "Una desaparición no empieza en una tabla. Empieza cuando alguien no vuelve.",
-  "Entre 2017 y mayo de 2026 se registraron 78.731 registros de personas desaparecidas en Ecuador.",
-  "En 2017 hubo 10.457 registros y en 2025, 7.485; el total bajó, pero en 2025 subió frente a 2024.",
-  "Las mujeres siguen siendo mayoría, pero la brecha con los hombres se reduce: 66,5 % frente a 55,1 %.",
-  "La denuncia se mantiene en dos días, pero la localización tarda más: de dos días en 2020 a cinco entre 2023 y 2025.",
-];
-
-
-
 const cases = [
   {
     name: "David Romo",
@@ -267,8 +246,7 @@ const cases = [
     place: "Quito",
     description: "David Romo desapareció en Quito en mayo de 2013. Su caso sigue abierto para búsqueda y localización, según informó la Fiscalía en 2025, y su madre, Alexandra Córdova, convirtió la ausencia en una lucha por verdad y memoria.",
     status: "Caso abierto",
-    imageUrl: new URL(romoAsset.url, import.meta.url).href,
-    sourceHref: "#",
+    imagen: null, sourceHref: "#",
   },
   {
     name: "Juliana Campoverde",
@@ -276,8 +254,7 @@ const cases = [
     place: "Quito",
     description: "Juliana Campoverde desapareció en 2012, cuando tenía 18 años. La Fiscalía obtuvo una sentencia de 25 años por secuestro extorsivo con resultado de muerte, pero su familia aún espera recuperar sus restos.",
     status: "Caso judicial",
-    imageUrl: new URL(campoverdeAsset.url, import.meta.url).href,
-    sourceHref: "#",
+    imagen: null, sourceHref: "#",
   },
   {
     name: "María Belén Bernal",
@@ -285,8 +262,7 @@ const cases = [
     place: "Quito",
     description: "María Belén Bernal desapareció en septiembre de 2022 después de ingresar a la Escuela Superior de Policía. Su cuerpo fue localizado días después en el cerro Casitagua y el caso estremeció al país por la violencia en un espacio que debía representar protección.",
     status: "Caso emblemático",
-    imageUrl: new URL(bernalAsset.url, import.meta.url).href,
-    sourceHref: "#",
+    imagen: null, sourceHref: "#",
   },
   {
     name: "Las Malvinas",
@@ -294,7 +270,7 @@ const cases = [
     place: "Guayaquil",
     description: "Josué, Ismael, Steven y Nehemías, tres adolescentes y un niño, fueron detenidos por militares en Guayaquil en diciembre de 2024. Sus cuerpos fueron hallados después cerca de Taura y el proceso judicial terminó con sentencias por desaparición forzada.",
     status: "Caso emblemático",
-    imageUrl: new URL(malvinasAsset.url, import.meta.url).href,
+    //imageUrl: new URL(malvinasAsset.url, import.meta.url).href,
     sourceHref: "#",
   },
   {
@@ -303,8 +279,7 @@ const cases = [
     place: "Quito",
     description: "Caso pendiente de insertar con contexto, fuente y enlace oficial.",
     status: "Caso migrante",
-    imageUrl: new URL(garzonAsset.url, import.meta.url).href,
-    sourceHref: "#",
+    imagen: null, sourceHref: "#",
   },
   {
     name: "Giovanna Pérez",
@@ -495,13 +470,25 @@ function Index() {
             </div>
             <div className="space-y-5 text-lg leading-relaxed text-ink/85">
               <p>
-                Una desaparición suele empezar con un gesto cotidiano: alguien sale a estudiar, aborda un autobús, acepta una carrera de trabajo, visita a una persona o cruza una calle conocida. Luego ocurre el quiebre. El teléfono deja de responder, la hora de regreso se convierte en espera y la espera empieza a medir la vida de una familia.
+                En esa palabra cabe una casa en silencio. Cabe una madre que no apaga el celular, un padre que repite la misma ruta, una hermana que mira la puerta como si el regreso pudiera aparecer en cualquier segundo. También caben carteles pegados en postes, fotos compartidas en redes, denuncias, búsquedas, preguntas y noches sin descanso.
               </p>
               <p>
-                En la pantalla de una institución, esa ausencia puede reducirse a una fila: fecha, edad, sexo, provincia, estado. En una casa, en cambio, se vuelve una habitación intacta, una fotografía repetida en redes sociales, una llamada que hace saltar el corazón y un recorrido por hospitales, fiscalías y unidades policiales.
+                Una desaparición no empieza en una tabla. Empieza cuando alguien no vuelve. Cuando una familia deja de contar horas normales y empieza a contar horas de angustia. En Ecuador, esa ausencia no solo golpea a quienes esperan en casa. También revela una responsabilidad pública: buscar, investigar, responder y no dejar que una persona se vuelva invisible.
               </p>
               <p>
-                Entre 2017 y mayo de 2026, las dos bases oficiales analizadas reúnen <strong>78.731 reportes</strong>. Esa cifra es suficientemente grande para dibujar patrones nacionales, pero cada patrón nace de historias particulares. La tensión central de este reportaje es usar los números para comprender el problema sin permitir que los números borren a las personas.
+                David Romo desapareció en Quito en mayo de 2013. Su caso sigue abierto para búsqueda y localización, según informó la Fiscalía en 2025. Su madre, Alexandra Córdova, convirtió esa ausencia en una lucha constante por verdad y memoria.
+              </p>
+              <p>
+                Juliana Campoverde desapareció en 2012, cuando tenía 18 años. La Fiscalía obtuvo una sentencia de 25 años por secuestro extorsivo con resultado de muerte, pero su familia todavía espera recuperar sus restos. Su caso recuerda que una sentencia no siempre cierra una búsqueda.
+              </p>
+              <p>
+                María Belén Bernal desapareció en septiembre de 2022 después de ingresar a la Escuela Superior de Policía. Su cuerpo fue localizado días después en el cerro Casitagua. Germán C. recibió una sentencia de treinta y cuatro años y ocho meses por femicidio. Ese caso estremeció al país porque ocurrió en un espacio que debía representar protección.
+              </p>
+              <p>
+                También está Las Malvinas: Josué, Ismael, Steven y Nehemías, tres adolescentes y un niño, fueron detenidos por militares en Guayaquil en diciembre de 2024. Sus cuerpos fueron encontrados después cerca de Taura. En diciembre de 2025, dieciséis militares recibieron sentencia por desaparición forzada. Allí la ausencia tomó una dimensión más grave: cuando el Estado aparece dentro del daño, la exigencia de verdad se vuelve inaplazable.
+              </p>
+              <p>
+                Este reportaje mira los datos para entender lo que una noticia aislada no alcanza a mostrar: quiénes desaparecen, dónde se concentran los registros, cuánto tarda una denuncia, cuánto demora una localización, qué grupos enfrentan desenlaces más graves y qué territorios necesitan mayor atención.
               </p>
             </div>
           </div>
@@ -512,15 +499,6 @@ function Index() {
             <StatBlock big="Enero–mayo" label="Corte 2026" note="Periodo parcial" alert />
           </div>
 
-
-          <div className="reveal mt-16 grid gap-4 md:grid-cols-2">
-            {documentoPuntos.slice(0, 2).map((point) => (
-              <MediaSlot key={point} text={point} />
-            ))}
-            {documentoPuntos.slice(2).map((point) => (
-              <MediaSlot key={point} text={point} />
-            ))}
-          </div>
         </div>
       </section>
 
@@ -543,10 +521,9 @@ function Index() {
           </div>
 
           <div className="reveal mt-10 rounded-sm border border-ink/10 bg-paper p-6 text-sm leading-relaxed text-ink/80">
-            <p>
-              El primer dato parece dar un respiro: en 2017 se registraron 10.457 casos y en 2025 fueron 7.485, lo que representa una reducción del 28,4 %. Pero el alivio no dura mucho: en 2025 los registros subieron frente a 2024, con 413 casos más. La pregunta que abre el reportaje es si el país está realmente mejorando o si simplemente la caída se detuvo.
-            </p>
+            La lectura central es sencilla: el número total bajó desde 2017, pero la disminución no sigue una línea recta. El aumento de 2025 abre una pregunta necesaria: ¿qué cambió para que la caída se frenara?
           </div>
+
           <div className="reveal mt-8 grid gap-4 sm:grid-cols-3">
             {evolucion.slice(-3).map((e) => (
               <div key={e.anio} className="rounded-sm border border-ink/10 bg-paper p-5">
