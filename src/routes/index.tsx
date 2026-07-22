@@ -61,7 +61,7 @@ const perfilDesenlace = [
 ];
 
 const provincias = [
-  { nombre: "Orellana", registros: 826, denuncia: "2 días", localizacion: "12 días" },
+  { nombre: "Orellanas", registros: 826, denuncia: "2 días", localizacion: "12 días" },
   { nombre: "Los Ríos", registros: 3167, denuncia: "2 días", localizacion: "10 días" },
   { nombre: "Morona Santiago", registros: 1268, denuncia: "3 días", localizacion: "10 días" },
   { nombre: "Cañar", registros: 817, denuncia: "2 días", localizacion: "9 días" },
