@@ -871,7 +871,7 @@ function Index() {
                 ) : interview.name === "Fundación Desendor" ? (
                   <MediaSlot text="Recurso de acompañamiento de Fundación Desendor sobre la experiencia de búsqueda y acompañamiento." videoUrl="https://www.youtube.com/embed/7nhyJCw_nNc" />
                 ) : (
-                  <MediaSlot text="Aquí se insertará el recurso testimonial correspondiente." />
+                  <MediaSlot text="Análisis del marco legal y sus implicaciones en los tiempos de respuesta institucional." videoUrl="https://www.youtube.com/embed/_f5EMcAkPQQ" />
                 )}
               </InterviewCard>
             ))}
