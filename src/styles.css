@@ -37,6 +37,8 @@
   --color-paper: var(--paper);
   --color-alert: var(--alert);
   --color-muted-ink: var(--muted-ink);
+  --color-deep: var(--deep);
+  --color-line: var(--line);
 
   --font-serif: 'Playfair Display', Georgia, serif;
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
@@ -45,13 +47,13 @@
 :root {
   --radius: 0.25rem;
 
-  /* Core editorial tokens */
-  --ink: oklch(0.18 0.005 260);
+  --ink: oklch(0.16 0.008 265);
+  --deep: oklch(0.10 0.012 265);
   --paper: oklch(0.985 0.003 90);
-  --alert: oklch(0.5 0.19 25);
+  --alert: oklch(0.55 0.20 25);
   --muted-ink: oklch(0.55 0.01 260);
+  --line: oklch(0.16 0.008 265 / 0.14);
 
-  /* Shadcn mappings */
   --background: var(--paper);
   --foreground: var(--ink);
   --card: var(--paper);
@@ -68,22 +70,14 @@
   --accent-foreground: var(--paper);
   --destructive: var(--alert);
   --destructive-foreground: var(--paper);
-  --border: oklch(0.18 0.005 260 / 0.12);
-  --input: oklch(0.18 0.005 260 / 0.12);
+  --border: var(--line);
+  --input: var(--line);
   --ring: var(--alert);
-}
-
-.dark {
-  --ink: oklch(0.97 0.003 90);
-  --paper: oklch(0.14 0.005 260);
-  --alert: oklch(0.62 0.21 25);
-  --muted-ink: oklch(0.65 0.01 260);
-  --border: oklch(0.97 0.003 90 / 0.12);
-  --input: oklch(0.97 0.003 90 / 0.15);
 }
 
 @layer base {
   * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
   body {
     background-color: var(--color-paper);
     color: var(--color-ink);
@@ -91,15 +85,17 @@
     font-feature-settings: "ss01", "ss02";
   }
   ::selection { background: var(--color-alert); color: var(--color-paper); }
-  h1, h2, h3, h4 { font-family: var(--font-serif); }
+  h1, h2, h3, h4 { font-family: var(--font-serif); letter-spacing: -0.01em; }
 }
 
-@keyframes count-in {
-  from { opacity: 0; transform: translateY(0.5rem); }
-  to { opacity: 1; transform: translateY(0); }
+/* Progress bar */
+.progress-bar {
+  position: fixed; top: 0; left: 0; height: 3px;
+  background: var(--color-alert);
+  z-index: 60; transition: width 120ms linear;
 }
-.animate-count-in { animation: count-in 0.9s cubic-bezier(0.19, 1, 0.22, 1) both; }
 
+/* Reveal on scroll */
 @keyframes reveal-up {
   from { opacity: 0; transform: translateY(1.5rem); }
   to { opacity: 1; transform: translateY(0); }
@@ -107,7 +103,41 @@
 .reveal { opacity: 0; }
 .reveal.is-visible { animation: reveal-up 0.9s cubic-bezier(0.19, 1, 0.22, 1) both; }
 
-@keyframes bar-grow-h {
-  from { width: 0; }
+@keyframes count-in {
+  from { opacity: 0; transform: translateY(0.5rem); }
+  to { opacity: 1; transform: translateY(0); }
 }
+.animate-count-in { animation: count-in 0.9s cubic-bezier(0.19, 1, 0.22, 1) both; }
+
+@keyframes bar-grow-h { from { width: 0; } }
 .animate-bar { animation: bar-grow-h 1.2s cubic-bezier(0.19, 1, 0.22, 1) both; }
+
+@keyframes bar-grow-v { from { height: 0; } }
+.animate-bar-v { animation: bar-grow-v 1.2s cubic-bezier(0.19, 1, 0.22, 1) both; }
+
+/* Hero typing/fade reveal */
+@keyframes hero-fade {
+  0% { opacity: 0; letter-spacing: 0.1em; filter: blur(6px); }
+  100% { opacity: 1; letter-spacing: -0.01em; filter: blur(0); }
+}
+.hero-question { animation: hero-fade 2.2s cubic-bezier(0.19, 1, 0.22, 1) 0.4s both; }
+.hero-sub { animation: hero-fade 1.8s cubic-bezier(0.19, 1, 0.22, 1) 1.6s both; }
+.hero-cta { animation: hero-fade 1.4s cubic-bezier(0.19, 1, 0.22, 1) 2.4s both; }
+
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0); opacity: 0.6; }
+  50% { transform: translateY(0.5rem); opacity: 1; }
+}
+.bounce-down { animation: bounce-down 2s ease-in-out infinite; }
+
+/* Case card hover */
+.case-card { transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.5s; }
+.case-card:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -30px oklch(0.16 0.008 265 / 0.35); }
+
+/* Lightbox */
+.lightbox {
+  position: fixed; inset: 0; background: oklch(0.05 0.005 265 / 0.94);
+  z-index: 80; display: flex; align-items: center; justify-content: center;
+  padding: 1.5rem; animation: fade-in 0.3s ease-out;
+}
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
