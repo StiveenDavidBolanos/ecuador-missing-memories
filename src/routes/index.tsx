@@ -7,6 +7,29 @@ import malvinasAsset from "@/assets/las_malvinas.jpg.asset.json";
 import restrepoAsset from "@/assets/hermanos_restrepo.jpg.asset.json";
 import ecuadorHeatmap from "@/assets/ecuador-heatmap.jpg";
 import heroVigil from "@/assets/hero-vigil.jpg";
+import desaparecidosSillas from "@/assets/Fotografias de desaparecidos en sillas.jpg";
+import balanza from "@/assets/Imagen con historia - balanza.jpg";
+import relojesArena from "@/assets/Imagen con historia - relojes de arena.jpg";
+import velas from "@/assets/Imagen con historia - velas.jpg";
+import zapatos from "@/assets/Imagen con historia - zapatos.jpg";
+import manifestacion from "@/assets/Manifestación.jpg";
+import manifestacionAsfadec from "@/assets/Menifestación y carteles asfadec.jpg";
+import plantonAsfadec from "@/assets/Plantón asfadec.jpg";
+import {
+  CaseCard,
+  ClosingSection,
+  DataCard,
+  EvolutionChart,
+  FindingSection,
+  HeroSection,
+  InterviewCard,
+  LegalCard,
+  MediaSlot,
+  MethodologySection,
+  ProvinceTimeChart,
+  SectionWrapper,
+  TimeBarsChart,
+} from "@/components/reportaje/ReportajePage";
 
 const TITLE = "Desaparecer en Ecuador — Un reportaje de datos";
 const DESCRIPTION =
@@ -61,11 +84,11 @@ const perfilDesenlace = [
 ];
 
 const provincias = [
-  { nombre: "Orellana", registros: 826, denuncia: "2 días", localizacion: "12 días" },
-  { nombre: "Los Ríos", registros: 3167, denuncia: "2 días", localizacion: "10 días" },
-  { nombre: "Morona Santiago", registros: 1268, denuncia: "3 días", localizacion: "10 días" },
-  { nombre: "Cañar", registros: 817, denuncia: "2 días", localizacion: "9 días" },
-  { nombre: "Esmeraldas", registros: 1924, denuncia: "2 días", localizacion: "9 días" },
+  { nombre: "Orellana", registros: 826, denuncia: "2 días", localizacion: "12 días", diasLocalizacion: 12 },
+  { nombre: "Los Ríos", registros: 3167, denuncia: "2 días", localizacion: "10 días", diasLocalizacion: 10 },
+  { nombre: "Morona Santiago", registros: 1268, denuncia: "3 días", localizacion: "10 días", diasLocalizacion: 10 },
+  { nombre: "Cañar", registros: 817, denuncia: "2 días", localizacion: "9 días", diasLocalizacion: 9 },
+  { nombre: "Esmeraldas", registros: 1924, denuncia: "2 días", localizacion: "9 días", diasLocalizacion: 9 },
 ];
 
 const tiempos = [
@@ -215,15 +238,133 @@ const fuentes = [
 const secciones = [
   { id: "hero", label: "Inicio" },
   { id: "contexto", label: "Contexto" },
-  { id: "evolucion", label: "Evolución" },
-  { id: "perfil", label: "Perfil" },
-  { id: "territorio", label: "Territorio" },
-  { id: "tiempos", label: "Tiempos" },
-  { id: "climax", label: "Ley vs. dato" },
-  { id: "casos", label: "Casos" },
-  { id: "linea", label: "Línea del tiempo" },
-  { id: "recomendaciones", label: "Recomendaciones" },
-  { id: "fuentes", label: "Fuentes" },
+  { id: "datos", label: "Datos" },
+  { id: "hallazgos", label: "Hallazgos" },
+  { id: "historias", label: "Historias" },
+  { id: "voces", label: "Voces" },
+  { id: "ley", label: "Ley" },
+  { id: "metodologia", label: "Metodología" },
+  { id: "cierre", label: "Cierre" },
+];
+
+const documentoPuntos = [
+  "Una desaparición no empieza en una tabla. Empieza cuando alguien no vuelve.",
+  "Entre 2017 y mayo de 2026 se registraron 78.731 registros de personas desaparecidas en Ecuador.",
+  "En 2017 hubo 10.457 registros y en 2025, 7.485; el total bajó, pero en 2025 subió frente a 2024.",
+  "Las mujeres siguen siendo mayoría, pero la brecha con los hombres se reduce: 66,5 % frente a 55,1 %.",
+  "La denuncia se mantiene en dos días, pero la localización tarda más: de dos días en 2020 a cinco entre 2023 y 2025.",
+];
+
+
+
+const cases = [
+  {
+    name: "David Romo",
+    year: "2013",
+    place: "Quito",
+    description: "David Romo desapareció en Quito en mayo de 2013. Su caso sigue abierto para búsqueda y localización, según informó la Fiscalía en 2025, y su madre, Alexandra Córdova, convirtió la ausencia en una lucha por verdad y memoria.",
+    status: "Caso abierto",
+    imageUrl: null,
+    sourceHref: "#",
+  },
+  {
+    name: "Juliana Campoverde",
+    year: "2012",
+    place: "Quito",
+    description: "Juliana Campoverde desapareció en 2012, cuando tenía 18 años. La Fiscalía obtuvo una sentencia de 25 años por secuestro extorsivo con resultado de muerte, pero su familia aún espera recuperar sus restos.",
+    status: "Caso judicial",
+    imageUrl: null,
+    sourceHref: "#",
+  },
+  {
+    name: "María Belén Bernal",
+    year: "2022",
+    place: "Quito",
+    description: "María Belén Bernal desapareció en septiembre de 2022 después de ingresar a la Escuela Superior de Policía. Su cuerpo fue localizado días después en el cerro Casitagua y el caso estremeció al país por la violencia en un espacio que debía representar protección.",
+    status: "Caso emblemático",
+    imageUrl: null,
+    sourceHref: "#",
+  },
+  {
+    name: "Las Malvinas",
+    year: "2024",
+    place: "Guayaquil",
+    description: "Josué, Ismael, Steven y Nehemías, tres adolescentes y un niño, fueron detenidos por militares en Guayaquil en diciembre de 2024. Sus cuerpos fueron hallados después cerca de Taura y el proceso judicial terminó con sentencias por desaparición forzada.",
+    status: "Caso emblemático",
+    imageUrl: malvinasAsset.url,
+    sourceHref: "#",
+  },
+  {
+    name: "Carolina Garzón",
+    year: "2012",
+    place: "Quito",
+    description: "Caso pendiente de insertar con contexto, fuente y enlace oficial.",
+    status: "Caso migrante",
+    imageUrl: null,
+    sourceHref: "#",
+  },
+  {
+    name: "Giovanna Pérez",
+    year: "2023",
+    place: "Manta",
+    description: "Caso pendiente de insertar con contexto, fuente y enlace oficial.",
+    status: "Caso abierto",
+    imageUrl: null,
+    sourceHref: "#",
+  },
+  {
+    name: "José Reinoso",
+    year: "2017",
+    place: "Cuenca",
+    description: "Caso pendiente de insertar con contexto, fuente y enlace oficial.",
+    status: "Caso abierto",
+    imageUrl: null,
+    sourceHref: "#",
+  },
+];
+
+const legalItems = [
+  {
+    title: "Constitución del Ecuador",
+    description: "La Constitución declara imprescriptible el delito de desaparición forzada y reconoce la obligación de proteger la vida, la integridad y la verdad frente al daño estatal.",
+    citation: "Art. 66 y 83",
+  },
+  {
+    title: "Ley Orgánica de Actuación en Casos de Personas Desaparecidas y Extraviadas",
+    description: "Esta ley establece que la búsqueda debe activarse de manera inmediata, que la presunción de vida debe sostenerse y que la investigación no puede cerrarse sin conocer el paradero de la persona o identificar sus restos.",
+    citation: "Ley 2020",
+  },
+  {
+    title: "COIP",
+    description: "El Código Orgánico Integral Penal tipifica la desaparición forzada y la desaparición involuntaria como delitos autónomos y permite sancionar a agentes estatales que oculten o nieguen información sobre el paradero.",
+    citation: "Arts. 84 y 163.1",
+  },
+  {
+    title: "Fiscalía y denuncia inmediata",
+    description: "La Fiscalía indica que no se debe esperar 24 horas para reportar una desaparición. La denuncia debe activarse desde el primer momento y debe acompañarse de datos, fotografías y una descripción precisa del último contacto.",
+    citation: "Procedimiento de emergencia",
+  },
+];
+
+const interviews = [
+  {
+    name: "ASFADEC",
+    role: "Organización de familiares",
+    theme: "Testimonio institucional",
+    quote: "La búsqueda debe sostenerse con voluntad institucional y memoria familiar.",
+  },
+  {
+    name: "Fundación Desendor",
+    role: "Organización de acompañamiento",
+    theme: "Acompañamiento y acompañamiento jurídico",
+    quote: "La ausencia también exige cuidado, no solo procedimientos.",
+  },
+  {
+    name: "Abogado de derechos humanos",
+    role: "Especialista legal",
+    theme: "Marco legal y tiempos",
+    quote: "No basta con la denuncia: debe existir respuesta efectiva y pronta.",
+  },
 ];
 
 /* ---------- Componente ---------- */
@@ -253,9 +394,8 @@ function Index() {
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className={`text-xs font-semibold uppercase tracking-widest transition-colors ${
-                  active === s.id ? "text-alert" : "text-muted-ink hover:text-ink"
-                }`}
+                className={`text-xs font-semibold uppercase tracking-widest transition-colors ${active === s.id ? "text-alert" : "text-muted-ink hover:text-ink"
+                  }`}
               >
                 {s.label}
               </a>
@@ -307,14 +447,14 @@ function Index() {
           </p>
           <div className="hero-cta mt-12 flex flex-wrap justify-center gap-3">
             <a
-              href="#contexto"
+              href="#datos"
               className="inline-flex items-center gap-2 rounded-sm bg-alert px-6 py-3 text-xs font-bold uppercase tracking-widest text-paper transition-transform hover:scale-[1.02]"
             >
               Descubrir la historia
               <span aria-hidden>→</span>
             </a>
             <a
-              href="#casos"
+              href="#historias"
               className="inline-flex items-center gap-2 rounded-sm border border-paper/30 px-6 py-3 text-xs font-bold uppercase tracking-widest text-paper hover:bg-paper hover:text-ink"
             >
               Ver casos emblemáticos
@@ -326,6 +466,18 @@ function Index() {
             <path d="M12 4v16M6 14l6 6 6-6" />
           </svg>
         </a>
+      </section>
+
+      <section className="border-b border-ink/10 bg-secondary">
+        <div className="w-full">
+          <div className="overflow-hidden bg-paper">
+            <img
+              src={desaparecidosSillas}
+              alt="Fotografía de personas desaparecidas en sillas"
+              className="h-[320px] w-full object-cover sm:h-[420px] lg:h-[480px]"
+            />
+          </div>
+        </div>
       </section>
 
       {/* CONTEXTO */}
@@ -357,50 +509,42 @@ function Index() {
             <StatBlock big="Enero–mayo" label="Corte 2026" note="Periodo parcial" alert />
           </div>
 
-          <div className="reveal mt-12 rounded-sm border border-ink/10 bg-secondary p-6 sm:p-8">
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-alert">Cómo se construyó</p>
-            <p className="mt-3 text-base leading-relaxed text-ink/85">
-              Se trabajó sobre bases oficiales del Ministerio del Interior. Se eliminaron duplicados exactos, se estandarizaron fechas y se calcularon intervalos entre desaparición, denuncia y localización. Los años 2017-2025 se analizan completos. El dato de 2026 se presenta como parcial y solo se compara directamente con enero-mayo de 2025: enfrentar cinco meses con doce produciría una conclusión engañosa.
-            </p>
+
+          <div className="reveal mt-16 grid gap-4 md:grid-cols-2">
+            {documentoPuntos.slice(0, 2).map((point) => (
+              <MediaSlot key={point} text={point} />
+            ))}
+            {documentoPuntos.slice(2).map((point) => (
+              <MediaSlot key={point} text={point} />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* EVOLUCIÓN */}
-      <section id="evolucion" className="border-b border-ink/10 bg-secondary">
+      {/* DATOS */}
+      <section id="datos" className="border-b border-ink/10 bg-secondary">
         <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
           <SectionHeader
-            eyebrow="Evolución anual"
+            eyebrow="Datos"
             titulo="Una caída que comenzó a frenarse"
             texto="En 2017 se registraron 10.457 casos. En 2025 fueron 7.485: una reducción del 28,4 %. Sin embargo, la trayectoria no fue una línea descendente perfecta. En 2020 el total cayó a 6.766 por la pandemia; en 2024 se tocó el menor valor reciente (7.072) y en 2025 volvió a subir 5,8 %."
           />
-          <div className="reveal mt-16 rounded-sm border border-ink/10 bg-paper p-6 sm:p-10">
-            <div className="grid grid-cols-10 gap-2 sm:gap-3 h-72 items-end">
-              {evolucion.map((e) => {
-                const h = (e.casos / maxCasos) * 100;
-                return (
-                  <div key={e.anio} className="flex flex-col items-center justify-end gap-2 group">
-                    <span className="text-[10px] font-semibold text-ink/70 sm:text-xs">
-                      {e.casos.toLocaleString("es-EC")}
-                    </span>
-                    <div
-                      className={`animate-bar-v w-full rounded-t-sm ${e.parcial ? "bg-alert/70" : "bg-ink"} group-hover:opacity-80 transition-opacity`}
-                      style={{ height: `${h}%` }}
-                      title={`${e.anio}: ${e.casos}`}
-                    />
-                    <span className={`text-[10px] font-bold uppercase tracking-wider sm:text-xs ${e.parcial ? "text-alert" : "text-ink"}`}>
-                      {e.anio}
-                    </span>
-                  </div>
-                );
-              })}
+          <div className="reveal mt-16 grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+            <EvolutionChart data={evolucion.slice(0, -1)} />
+            <div className="grid gap-4">
+              <DataCard value="78.731" label="Registros analizados" note="2017–mayo 2026" />
+              <DataCard value="10.457" label="Registros en 2017" note="Punto de partida de la serie" />
+              <DataCard value="7.485" label="Registros en 2025" note="Año reciente con repunte" />
+              <DataCard value="3.195" label="Registros en 2026" note="Enero–mayo, periodo parcial" />
             </div>
-            <p className="mt-6 border-t border-ink/10 pt-4 text-xs text-muted-ink">
-              * 2026 corresponde solo a enero–mayo. Fuente: bases oficiales depuradas del Ministerio del Interior.
-            </p>
           </div>
 
-          <div className="reveal mt-10 grid gap-4 sm:grid-cols-3">
+          <div className="reveal mt-10 rounded-sm border border-ink/10 bg-paper p-6 text-sm leading-relaxed text-ink/80">
+            <p>
+              El primer dato parece dar un respiro: en 2017 se registraron 10.457 casos y en 2025 fueron 7.485, lo que representa una reducción del 28,4 %. Pero el alivio no dura mucho: en 2025 los registros subieron frente a 2024, con 413 casos más. La pregunta que abre el reportaje es si el país está realmente mejorando o si simplemente la caída se detuvo.
+            </p>
+          </div>
+          <div className="reveal mt-8 grid gap-4 sm:grid-cols-3">
             {evolucion.slice(-3).map((e) => (
               <div key={e.anio} className="rounded-sm border border-ink/10 bg-paper p-5">
                 <p className="font-serif text-3xl">{e.casos.toLocaleString("es-EC")}</p>
@@ -411,18 +555,16 @@ function Index() {
         </div>
       </section>
 
-      {/* PERFIL */}
-      <section id="perfil" className="border-b border-ink/10 bg-paper">
+      {/* PERFIL / HALLAZGOS */}
+      <section id="hallazgos" className="border-b border-ink/10 bg-paper">
         <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
           <SectionHeader
-            eyebrow="Perfil"
-            titulo="La brecha entre mujeres y hombres se estrechó"
-            texto="En 2017 las mujeres representaban el 66,5 % de los reportes. En 2025 fueron el 55,1 %. Los hombres pasaron del 33,5 % al 44,9 %. La caída histórica se concentró casi completamente en los registros femeninos: disminuyeron 40,7 % entre 2017 y 2025; los casos de hombres bajaron apenas 4 %."
+            titulo="Lo que revelan los datos"
+            texto="El análisis de los 78.731 registros revela patrones sobre género, tiempo y desenlace. Las mujeres siguen siendo mayoría, pero la brecha se acorta. La localización se demora más y los perfiles de mayor riesgo no son siempre los más numerosos."
           />
 
           <div className="reveal mt-14 rounded-sm border border-ink/10 bg-secondary p-6 sm:p-10">
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-alert">Composición por sexo</p>
-            <div className="mt-6 space-y-4">
+            <div className="space-y-4">
               {composicionSexo.map((c) => (
                 <div key={c.anio} className="grid grid-cols-[3rem_1fr_3rem] items-center gap-3">
                   <span className="text-xs font-bold uppercase tracking-widest text-ink">{c.anio}</span>
@@ -441,11 +583,21 @@ function Index() {
                 </div>
               ))}
             </div>
+            <p className="mt-4 text-xs text-muted-ink">
+              La brecha de género en los registros de desapariciones se ha ido cerrando con el tiempo.
+            </p>
+          </div>
+
+          <div className="reveal mt-8 overflow-hidden rounded-sm border border-ink/10">
+            <img src={balanza} alt="Una balanza antigua con dos platos, simbolizando el equilibrio entre sexos en los registros." className="h-auto w-full object-cover" />
+          </div>
+
+          <div className="reveal mt-8">
+            <TimeBarsChart data={tiempos} />
           </div>
 
           <div className="reveal mt-16">
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-alert">Cantidad frente a gravedad</p>
-            <h3 className="mt-3 font-serif text-2xl sm:text-3xl">
+            <h3 className="font-serif text-2xl sm:text-3xl">
               Las adolescentes concentran los casos. Los hombres adultos y adultos mayores, los peores desenlaces.
             </h3>
             <div className="mt-8 overflow-x-auto rounded-sm border border-ink/10">
@@ -485,27 +637,38 @@ function Index() {
         </div>
       </section>
 
+      <div className="reveal grid grid-cols-1 gap-px border-y border-ink/10 bg-ink/10 md:grid-cols-2">
+        <div className="flex items-center justify-center bg-secondary p-6 sm:p-8">
+          <img src={velas} alt="Velas encendidas en una vigilia, simbolizando la memoria y la esperanza." className="max-h-[50vh] w-auto rounded-sm object-contain" />
+        </div>
+        <div className="flex items-center justify-center bg-secondary p-6 sm:p-8">
+          <img src={zapatos} alt="Zapatos vacíos en una protesta, simbolizando a los ausentes." className="max-h-[50vh] w-auto rounded-sm object-contain" />
+        </div>
+      </div>
+
       {/* TERRITORIO */}
       <section id="territorio" className="border-b border-ink/10 bg-deep text-paper">
         <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
           <SectionHeader
-            eyebrow="Territorio"
             titulo="El mapa también pesa"
-            texto="La mediana entre desaparición y localización no es igual en todas las provincias. Entre 2017 y 2025 fue de 12 días en Orellana, 10 en Los Ríos y Morona Santiago, y 9 en Esmeraldas y Cañar. La igualdad legal no puede depender del código postal."
+            texto="La mediana de días hasta la localización no es igual en todas las provincias. Entre 2017 y 2025 fue de 12 días en Orellana, 10 en Los Ríos y Morona Santiago, y 9 en Esmeraldas y Cañar. La igualdad ante la ley no puede depender del código postal."
             dark
           />
 
           <div className="reveal mt-16 grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
-            <div className="rounded-sm border border-paper/15 bg-deep/60 p-4 backdrop-blur">
-              <img
-                src={ecuadorHeatmap}
-                alt="Mapa de Ecuador con intensidad de reportes por provincia"
-                className="w-full rounded-sm opacity-90"
-                loading="lazy"
-              />
-              <p className="mt-3 text-xs text-paper/60">
-                Intensidad relativa por provincia · 2017-2025. Elaboración propia.
-              </p>
+            <div className="space-y-4">
+              <div className="rounded-sm border border-paper/15 bg-deep/60 p-4 backdrop-blur">
+                <img
+                  src={ecuadorHeatmap}
+                  alt="Mapa de Ecuador con intensidad de reportes por provincia"
+                  className="w-full rounded-sm opacity-90"
+                  loading="lazy"
+                />
+                <p className="mt-3 text-xs text-paper/60">
+                  Intensidad relativa por provincia · 2017-2025. Elaboración propia.
+                </p>
+              </div>
+              <ProvinceTimeChart data={provincias} />
             </div>
             <div className="space-y-4">
               {provincias.map((p) => (
@@ -530,7 +693,6 @@ function Index() {
           </div>
 
           <div className="reveal mt-16">
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-alert">Guayas vs. Pichincha · cambio de composición</p>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {composicionTerritorio.map((t) => (
                 <div key={t.lugar} className="rounded-sm border border-paper/15 p-5">
@@ -592,11 +754,14 @@ function Index() {
         </div>
       </section>
 
+      <div className="reveal flex items-center justify-center overflow-hidden border-y border-ink/10 bg-secondary py-12">
+        <img src={relojesArena} alt="Varios relojes de arena con el tiempo corriendo, simbolizando la urgencia en la búsqueda." className="max-h-[60vh] w-auto rounded-sm object-contain" />
+      </div>
+
       {/* CLÍMAX */}
       <section id="climax" className="relative border-b border-ink/10 bg-deep text-paper">
         <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
-          <p className="reveal text-xs font-bold uppercase tracking-[0.4em] text-alert">Clímax</p>
-          <h2 className="reveal mt-6 font-serif text-4xl sm:text-6xl leading-[1.05]">
+          <h2 className="reveal font-serif text-4xl leading-tight sm:text-6xl">
             La ley dice <span className="italic">“sin dilación”</span>.<br />
             Los datos dicen <span className="text-alert">cinco días</span>.
           </h2>
@@ -614,9 +779,8 @@ function Index() {
           </div>
 
           <div className="reveal mt-14 grid gap-8 lg:grid-cols-2">
-            <div className="rounded-sm border border-alert/40 bg-alert/10 p-6">
-              <p className="text-xs font-bold uppercase tracking-widest text-alert">La ley exige</p>
-              <ul className="mt-4 space-y-2 text-sm text-paper/90">
+            <div className="rounded-sm border border-paper/20 bg-paper/5 p-6">
+              <ul className="space-y-2 text-sm text-paper/90">
                 <li>· Inmediatez y debida diligencia</li>
                 <li>· Presunción de vida</li>
                 <li>· Denuncia 24/7 sin espera de 24 horas</li>
@@ -624,8 +788,7 @@ function Index() {
               </ul>
             </div>
             <div className="rounded-sm border border-paper/20 p-6">
-              <p className="text-xs font-bold uppercase tracking-widest text-paper/70">Los datos muestran</p>
-              <ul className="mt-4 space-y-2 text-sm text-paper/90">
+              <ul className="space-y-2 text-sm text-paper/90">
                 <li>· La mediana de localización pasó de 2 a 5 días</li>
                 <li>· Los registros “fallecido” crecieron de 173 a 440 por año</li>
                 <li>· Existen provincias con tiempos sistemáticamente más largos</li>
@@ -636,11 +799,10 @@ function Index() {
         </div>
       </section>
 
-      {/* CASOS */}
-      <section id="casos" className="border-b border-ink/10 bg-paper">
+      {/* HISTORIAS */}
+      <section id="historias" className="border-b border-ink/10 bg-paper">
         <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
           <SectionHeader
-            eyebrow="Los datos tienen rostro"
             titulo="Casos que sostienen la estadística"
             texto="Siete historias que atraviesan el reportaje. Cada expediente devuelve rostro y memoria a un registro administrativo."
           />
@@ -704,80 +866,89 @@ function Index() {
               );
             })}
           </div>
+
         </div>
       </section>
 
-      {/* LÍNEA DEL TIEMPO */}
-      <section id="linea" className="border-b border-ink/10 bg-secondary">
-        <div className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
+      {/* VOCES */}
+      <section id="voces" className="border-b border-ink/10 bg-secondary">
+        <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
           <SectionHeader
-            eyebrow="Línea del tiempo"
-            titulo="Del caso Restrepo al hábeas corpus de Las Malvinas"
+            eyebrow="Voces"
+            titulo="Voces que buscan"
+            texto="La búsqueda no es solo un procedimiento, es una lucha diaria. Escuchamos a quienes acompañan a las familias y a quienes interpretan la ley desde la experiencia."
+          />
+          <div className="reveal mt-10 rounded-sm border border-ink/10 bg-paper p-6 text-sm leading-relaxed text-ink/80">
+            <p>
+              El reportaje también necesita una voz humana. La pregunta sugerida para el audio o testimonio inicial es simple: “¿Qué significa seguir buscando?”
+            </p>
+          </div>
+          <div className="reveal mt-14 grid gap-6 lg:grid-cols-3">
+            {interviews.map((interview) => (
+              <InterviewCard key={interview.name} {...interview}>
+                {interview.name === "ASFADEC" ? (
+                  <MediaSlot text="Testimonio institucional de ASFADEC sobre la búsqueda y la urgencia de respuesta." videoUrl="https://www.youtube.com/embed/J1uYwSsiybI" />
+                ) : interview.name === "Fundación Desendor" ? (
+                  <MediaSlot text="Recurso de acompañamiento de Fundación Desendor sobre la experiencia de búsqueda y acompañamiento." videoUrl="https://www.youtube.com/embed/7nhyJCw_nNc" />
+                ) : (
+                  <MediaSlot text="Aquí se insertará el recurso testimonial correspondiente." />
+                )}
+              </InterviewCard>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LÍNEA DEL TIEMPO / MARCO LEGAL */}
+      <section id="ley" className="border-b border-ink/10 bg-paper">
+        <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
+          <SectionHeader
+            titulo="Lo que exige la ley"
             texto="Un recorrido por los hitos legales y sociales que definen hoy la respuesta institucional frente a las desapariciones en Ecuador."
           />
-          <ol className="reveal mt-14 relative border-l-2 border-ink/15">
-            {timeline.map((t) => (
-              <li key={t.fecha} className="relative pl-8 pb-10 last:pb-0">
-                <span className="absolute -left-[9px] top-1 grid h-4 w-4 place-items-center rounded-full bg-alert ring-4 ring-secondary" />
-                <p className="font-serif text-3xl text-ink">{t.fecha}</p>
-                <h4 className="mt-2 text-sm font-bold uppercase tracking-widest text-alert">{t.titulo}</h4>
-                <p className="mt-2 text-base leading-relaxed text-ink/85">{t.texto}</p>
-              </li>
+          <div className="reveal mt-14 grid gap-6 md:grid-cols-2">
+            {legalItems.map((item) => (
+              <LegalCard key={item.title} {...item} />
             ))}
-          </ol>
+          </div>
+          <div className="reveal mt-8 rounded-sm border border-alert/25 bg-alert/10 p-6 sm:p-8">
+            <p className="text-base leading-relaxed text-ink/80">
+              No se debe esperar 24 horas para denunciar. Antes se hablaba de esperar hasta 72 horas; hoy, con el marco legal y la presión de organizaciones como ASFADEC, la desaparición puede reportarse desde el primer momento. Es crucial saber dónde denunciar, qué datos llevar, qué fotografía entregar y cómo describir el último contacto.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* RECOMENDACIONES */}
-      <section id="recomendaciones" className="border-b border-ink/10 bg-paper">
-        <div className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
+      {/* METODOLOGÍA */}
+      <section id="metodologia" className="border-b border-ink/10 bg-secondary">
+        <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">
           <SectionHeader
-            eyebrow="Recomendaciones"
-            titulo="Buscar no es un favor: es una obligación constitucional"
-            texto="Ocho recomendaciones basadas en la Constitución y en la Ley Orgánica de Actuación en Casos de Personas Desaparecidas y Extraviadas."
+            titulo="Cómo se construyó esta pieza"
+            texto="Este reportaje se basa en el análisis de datos oficiales, el marco legal vigente y el testimonio de actores clave. La transparencia es fundamental para el periodismo de datos."
           />
-          <div className="reveal mt-14 divide-y divide-ink/10 rounded-sm border border-ink/10">
-            {recomendaciones.map((r, i) => {
-              const open = openRec === i;
-              return (
-                <div key={r.titulo}>
-                  <button
-                    onClick={() => setOpenRec(open ? null : i)}
-                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-secondary"
-                    aria-expanded={open}
-                  >
-                    <span className="font-serif text-lg sm:text-xl">{r.titulo}</span>
-                    <span className={`shrink-0 text-alert transition-transform ${open ? "rotate-45" : ""}`} aria-hidden>+</span>
-                  </button>
-                  {open && (
-                    <div className="animate-count-in bg-secondary px-5 pb-5 text-sm leading-relaxed text-ink/85">
-                      {r.texto}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="reveal mt-16 rounded-sm border border-alert bg-alert/10 p-6 sm:p-8">
-            <p className="text-xs font-bold uppercase tracking-widest text-alert">Cierre editorial</p>
-            <p className="mt-3 font-serif text-2xl leading-tight sm:text-3xl">
-              “Una persona desaparecida no es un expediente suspendido. Es un derecho pendiente.”
-            </p>
-            <p className="mt-3 text-sm text-ink/80">
-              No esperes 24 horas. Reporta de inmediato ante Fiscalía o Policía Nacional. Emergencias: <strong>911</strong>. Denuncias en línea: <strong>1800-DELITO</strong>.
-            </p>
+          <div className="reveal mt-14">
+            <MethodologySection points={[
+              "Fuente de datos: bases oficiales del Ministerio del Interior, depuradas y estandarizadas.",
+              "Periodo analizado: 2017-2025 y enero-mayo de 2026.",
+              "Sección de trabajo: registros administrativos, tiempos de respuesta, perfiles por sexo y territorio.",
+              "Limitaciones: el 2026 es parcial y los cambios de clasificación pueden afectar comparaciones.",
+              "Se recomienda actualizar con nuevas versiones de la base y con notas metodológicas oficiales.",
+              "Hay un posible subregistro en algunos casos abiertos y un cambio de categoría en 2024 que debe revisarse con mayor profundidad.",
+            ]} />
           </div>
         </div>
       </section>
 
-      {/* FUENTES + CRÉDITOS */}
-      <section id="fuentes" className="bg-deep text-paper">
+      {/* CIERRE */}
+      <section id="cierre" className="bg-deep text-paper">
         <div className="mx-auto max-w-6xl px-6 py-20">
           <div className="grid gap-14 lg:grid-cols-[1.4fr_1fr]">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.3em] text-alert">Fuentes y referencias legales</p>
-              <h2 className="mt-4 font-serif text-3xl sm:text-4xl">Verificación y transparencia</h2>
+              <p className="text-xs font-bold uppercase tracking-[0.3em] text-alert">Cierre</p>
+              <h2 className="mt-4 font-serif text-3xl sm:text-4xl">Una desaparición no termina cuando deja de ser noticia</h2>
+              <p className="mt-6 text-base leading-relaxed text-paper/85">
+                Detrás de cada número hay una historia que no se cierra, una búsqueda que no cesa y una familia que espera. Los datos son una herramienta para exigir respuestas, pero la memoria es el motor para no olvidar.
+              </p>
               <ol className="mt-8 space-y-3 text-sm text-paper/85">
                 {fuentes.map((f, i) => (
                   <li key={f} className="flex gap-3">
@@ -788,28 +959,12 @@ function Index() {
               </ol>
             </div>
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.3em] text-alert">Créditos</p>
-              <h2 className="mt-4 font-serif text-3xl sm:text-4xl">Ausencias.ec</h2>
-              <p className="mt-4 text-sm leading-relaxed text-paper/80">
-                Reportaje independiente de periodismo de datos sobre la desaparición de personas en Ecuador. Análisis basado en las bases oficiales del Ministerio del Interior 2017-2025 y enero-mayo de 2026, con depuración propia.
-              </p>
-              <dl className="mt-6 space-y-3 text-sm">
-                <div>
-                  <dt className="text-xs uppercase tracking-widest text-paper/50">Investigación y análisis</dt>
-                  <dd className="mt-1 text-paper/90">Equipo Ausencias.ec</dd>
-                </div>
-                <div>
-                  <dt className="text-xs uppercase tracking-widest text-paper/50">Diseño y desarrollo</dt>
-                  <dd className="mt-1 text-paper/90">Reportaje web interactivo</dd>
-                </div>
-                <div>
-                  <dt className="text-xs uppercase tracking-widest text-paper/50">Publicación</dt>
-                  <dd className="mt-1 text-paper/90">Julio de 2026</dd>
-                </div>
-              </dl>
-              <p className="mt-6 border-t border-paper/15 pt-4 text-xs text-paper/60">
-                Los datos son administrativos y anonimizados. Las historias humanas fueron verificadas con fuentes oficiales. No se publican direcciones, coordenadas exactas ni testimonios sin consentimiento.
-              </p>
+              <ClosingSection
+                title="Una desaparición no termina cuando deja de ser noticia."
+                text="La pregunta inicial regresa con más peso. No basta con contar casos; hace falta convertir los datos en una respuesta real, a tiempo y con memoria. Este reportaje es un paso en esa dirección."
+                buttonHref="#hero"
+                buttonLabel="Volver al inicio"
+              />
             </div>
           </div>
         </div>
@@ -848,12 +1003,12 @@ function Index() {
 
 /* ---------- Sub-componentes ---------- */
 
-function SectionHeader({ eyebrow, titulo, texto, dark }: { eyebrow: string; titulo: string; texto: string; dark?: boolean }) {
+function SectionHeader({ eyebrow, titulo, texto, dark }: { eyebrow?: string; titulo: string; texto: string; dark?: boolean }) {
   return (
     <div className="reveal grid gap-8 lg:grid-cols-[1fr_1.4fr] lg:items-end">
       <div>
-        <p className="text-xs font-bold uppercase tracking-[0.35em] text-alert">{eyebrow}</p>
-        <h2 className="mt-4 font-serif text-4xl sm:text-5xl leading-tight">{titulo}</h2>
+        {eyebrow ? <p className="text-xs font-bold uppercase tracking-[0.35em] text-alert">{eyebrow}</p> : null}
+        <h2 className={`font-serif text-4xl leading-tight sm:text-5xl ${eyebrow ? "mt-4" : "mt-0"}`}>{titulo}</h2>
       </div>
       <p className={`text-base leading-relaxed sm:text-lg ${dark ? "text-paper/80" : "text-ink/80"}`}>{texto}</p>
     </div>
